@@ -48,4 +48,12 @@ export class AlbumsComponent implements OnInit {
    // console.log(this.events)
  
   }
+  search($event) {
+    if ($event) this.albums = $event;
+  }
+
+  // mise à jour de la pagination
+  paginate($event) {
+    this.albums = this.ablumService.paginate($event.start, $event.end);
+  }
 }

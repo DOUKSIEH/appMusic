@@ -61,9 +61,13 @@
               <button (click)="onSelect(album)" class="btn btn-dark">Details</button>
             </div>
           </div>
-          <!-- .card -->
-          <!-- Pagination -->
-        </div>
+          <!-- .card 
+          <div  class="d-flex justify-content-center mt-3">
+              <app-paginate (pageChange)="pageChanged($event)"></app-paginate>
+          </div>
+        </div>-->
+        <!-- Pagination -->
+    <app-paginate (setPaginate)="paginate($event)"></app-paginate>
         <!-- .music -->
 </div>
       

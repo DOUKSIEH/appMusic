@@ -10,8 +10,11 @@ import { AlbumsComponent } from './albums/albums.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AlbumService } from './album.service';
 import { SearchComponent } from './search/search.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlbumDescriptionComponent } from './album-description/album-description.component';
 import { LoginComponent } from './login/login.component';
+import { PaginateComponent } from './paginate/paginate.component';
 
 // définission de la constante pour les routes
 const albumsRoutes: Routes = [
@@ -32,6 +35,11 @@ const albumsRoutes: Routes = [
   path: 'album/:id',
   component: AlbumDescriptionComponent
   },
+  {
+  path: 'paginate',
+  component: PaginateComponent
+  }
+
   ];
 @NgModule({
   declarations: [
@@ -40,11 +48,13 @@ const albumsRoutes: Routes = [
     AlbumDetailsComponent,
     SearchComponent,
     AlbumDescriptionComponent,
-    LoginComponent
+    LoginComponent,
+    PaginateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule, // importez le module
     RouterModule.forRoot(albumsRoutes), // chargement des routes dans l'application
   ],

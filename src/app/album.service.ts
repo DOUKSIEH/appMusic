@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Album, List } from './album';
 import { ALBUM_LISTS, ALBUMS } from './mock-albums'; 
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,24 @@ export class AlbumService {
     (a, b) => { return b.duration - a.duration }
   ).slice(start, end);
  }
+ search(word: string): Album[] {
+  if (word.length > 2) {
+    let response = [];
+    this._albums.forEach(album => {
+      if (album.title.includes(word)) response.push(album);
+    });
+
+    return response;
+  }
+}
+
+paginateNumberPage():number{
+  if ( typeof environment.numberPage == 'undefined' )
+    throw "Attention la pagination n'est pas définie" ;
+
+  return environment.numberPage ;
+}
+
 
 
  
